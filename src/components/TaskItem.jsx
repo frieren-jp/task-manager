@@ -26,11 +26,12 @@ export default function TaskItem({ task, deleteTask, updateTask }) {
               <span key={tag}>#{tag} </span>
             ))}
           </div>
+           <button onClick={() => setEdit(!edit)}>Edit </button>
+      <button onClick={() => deleteTask(task.id)}>Delete</button>
         </>
       )}
 
-      <button onClick={() => setEdit(!edit)}>Edit</button>
-      <button onClick={() => deleteTask(task.id)}>Delete</button>
+     
     </div>
   );
 }

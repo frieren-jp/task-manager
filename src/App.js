@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useLocalStorage from "./hooks/useLocalStorage";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import SearchBar from "./components/SearchBar";
 import ThemeToggle from "./components/ThemeToggle";
 import "./styles/theme.css";
+import { ThemeContext } from "./context/ThemeProvider";
 
 export default function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState("light");
   const [sortOrder, setSortOrder] = useState("asc");
-
+  const {} = useContext(ThemeContext)
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);

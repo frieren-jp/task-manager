@@ -5,7 +5,8 @@ export default function TaskInput({ addTask }) {
   const [deadline, setDeadline] = useState("");
   const [tags, setTags] = useState("");
 
-  const handleAdd = () => {
+  const handleAdd = (e) => {
+    e.preventDefault()
     if (!text) return;
 
     addTask({
@@ -21,7 +22,7 @@ export default function TaskInput({ addTask }) {
   };
 
   return (
-    <div>
+    <form onSubmit={handleAdd}>
       <input
         value={text}
         onChange={e => setText(e.target.value)}
@@ -37,7 +38,7 @@ export default function TaskInput({ addTask }) {
         onChange={e => setTags(e.target.value)}
         placeholder="tags (comma)"
       />
-      <button onClick={handleAdd}>Add</button>
-    </div>
+      <button type="submit">Add</button>
+    </form>
   );
 }
